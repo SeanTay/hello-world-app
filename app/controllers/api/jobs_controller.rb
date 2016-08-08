@@ -1,11 +1,10 @@
-class JobsController < ApplicationController
+class Api::JobsController < Api::BaseController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = Job.all
-    render component: 'SavedJobs', props: {jobs: @jobs}
+    respond_with Job.all
   end
 
   # GET /jobs/1
@@ -63,13 +62,13 @@ class JobsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_job
-      @job = Job.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_job
+    @job = Job.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def job_params
-      params.require(:job).permit(:company, :location, :title, :description, :url)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def job_params
+    params.require(:job).permit(:company, :location, :title, :description, :url)
+  end
 end

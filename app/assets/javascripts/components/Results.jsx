@@ -9,7 +9,8 @@ class Results extends React.Component {
           <p>Company: <a href={job.company_url} target="_blank">{job.company}</a></p>
           <p>City: {job.location}</p>
           <p><a href={job.url} target="_blank">Apply now!</a></p>
-          <SaveJob/>
+          <SaveJobContainer/>
+
         </div>
       )
     })

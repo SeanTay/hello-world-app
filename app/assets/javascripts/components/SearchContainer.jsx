@@ -18,16 +18,14 @@ class SearchContainer extends React.Component {
 
 
   handleSearchSubmit(e){
-
-
     function queryGHJobs (query) {
-         var term = query.replace(/\s/, "+"); // replace any white space characters with a "+"
-         var url = "https://jobs.github.com/positions.json?search="+term+"&callback=?";
-         // fetch all jobs matching the passed in search as JSON
-         return $.getJSON(url).then(function(response) {
-           return response
-         });
-       }
+      var term = query.replace(/\s/, "+"); // replace any white space characters with a "+"
+      var url = "https://jobs.github.com/positions.json?search="+term+"&callback=?";
+      // fetch all jobs matching the passed in search as JSON
+      return $.getJSON(url).then(function(response) {
+        return response
+      });
+    }
 
     e.preventDefault()
     let component=this
@@ -42,19 +40,19 @@ class SearchContainer extends React.Component {
   }
 
   render(){
-      if (this.state.hasSearched){
-        return(
-          <Results
-            jobs={this.state.jobs}/>
-        )
-      } else {
-          return (
-            <Searchbox
-            handleSearchInput={(e) => this.handleSearchInput(e)}
-            handleSearchSubmit={(e) => this.handleSearchSubmit(e)}
-            query={this.state.query}
-            />
-          )
-        }
-      }
+    if (this.state.hasSearched){
+      return(
+        <Results
+          jobs={this.state.jobs}/>
+      )
+    } else {
+      return (
+        <Searchbox
+          handleSearchInput={(e) => this.handleSearchInput(e)}
+          handleSearchSubmit={(e) => this.handleSearchSubmit(e)}
+          query={this.state.query}
+          />
+      )
+    }
+  }
 }
