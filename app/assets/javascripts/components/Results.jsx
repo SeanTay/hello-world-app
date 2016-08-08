@@ -3,12 +3,13 @@ class Results extends React.Component {
     let {jobs}=this.props
     let results=jobs.map((job, index) => {
       return (
-        <div key={index}>
+        <div className="job" key={index}>
           <img width="200px" src={job.company_logo} alt={job.company}></img>
-          <p>{job.title}</p>
-          <p>{job.company}</p>
-          <p>{job.location}</p>
-          <p>{job.description}.toHtml()</p>
+          <p>Title: {job.title}</p>
+          <p>Company: <a href={job.company_url} target="_blank">{job.company}</a></p>
+          <p>City: {job.location}</p>
+          <p><a href={job.url} target="_blank">Apply now!</a></p>
+          <SaveJob/>
         </div>
       )
     })
