@@ -5,6 +5,7 @@ class JobsController < ApplicationController
   # GET /jobs.json
   def index
     @jobs = Job.all
+    render component: 'SavedJobs', props: {jobs: @jobs}
   end
 
   # GET /jobs/1
