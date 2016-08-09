@@ -21,6 +21,7 @@ handleSubmit(job) {
   })
 }
 
+
 render(){
   savedJobs = this.state.savedJobs.map(function(job){
     return(
@@ -29,6 +30,7 @@ render(){
       </ul>
     )
   })
+
   return(
     <div className = "savedJobs">
       {savedJobs}
