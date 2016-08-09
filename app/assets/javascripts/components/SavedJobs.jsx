@@ -43,7 +43,6 @@ class SavedJobs extends React.Component {
   render(){
     let component = this
     savedJobs = this.state.savedJobs.map(function(job){
-
       return(
         <div key={job.id}>
           <h3>{job.company}</h3>
