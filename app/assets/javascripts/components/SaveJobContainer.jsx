@@ -6,8 +6,6 @@ class SaveJobContainer extends React.Component {
       job: []
     }
   }
-
-
   handleSaveSubmit(e){
     e.preventDefault()
     let job=this.props.job
@@ -19,6 +17,7 @@ class SaveJobContainer extends React.Component {
       data: { job: { title: job.title, description: job.description, company: job.company } },
       success: (job) => {this.props.handleSubmit(job);
       }
+
   });
 }
 
