@@ -4,7 +4,7 @@ class SaveJobButton extends React.Component {
     let {handleSaveSubmit, job} = this.props
     return(
         <form onSubmit={(e) => handleSaveSubmit(e)}>
-        <button type="submit">Save job</button>
+        <button type="submit">Save </button>
         </form>
       )
     }

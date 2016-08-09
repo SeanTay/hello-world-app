@@ -4,7 +4,6 @@ class SearchContainer extends React.Component {
     this.state = {
       query:'',
       hasSearched: false,
-      test: true,
       jobs: []
     }
   }

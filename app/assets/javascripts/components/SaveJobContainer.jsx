@@ -3,101 +3,33 @@ class SaveJobContainer extends React.Component {
     super(props)
     this.state = {
       hasSaved: false,
-      savedJobs: []
+      job: []
     }
   }
 
 
-  toggleSave(job){
-
-  		if(this.isJobInSavedJobs(job)){
-  			this.removeFromSavedJobs(job);
-  		}
-  		else{
-  			this.addToSavedJobs(job);
-  		}
-
-  	}
-
-  	addToSavedJobs(job){
-
-  		var savedJobs = this.state.savedJobs;
-
-  		savedJobs.push({
-  			title: title,
-        company: company
-  			timestamp: Date.now()
-  		});
-
-  		this.setState({
-  			savedJobs: savedJobs
-  		});
-
-  		localStorage.savedJobs = JSON.stringify(savedJobs);
-  	}
-
-  	removeFromSavedJobs(job){
-
-  		var savedJobs = this.state.savedJobs;
-  		var index = -1;
-
-  		for(var i = 0; i < savedJobs.length; i++){
-
-  			if(savedJobs[i].job == job){
-  				index = i;
-  				break;
-  			}
-
-  		}
-
-  		// If it was found, remove it from the savedJobs array
-
-  		if(index !== -1){
-
-  			savedJobs.splice(index, 1);
-
-  			this.setState({
-  				savedJobs: savedJobs
-  			});
-
-  			localStorage.savedJobs = JSON.stringify(savedJobs);
-  		}
-
-  	}
-
-  	isJobInSavedJobs(job){
-
-  		var savedJobs = this.state.savedJobs;
-
-  		for(var i = 0; i < savedJobs.length; i++){
-
-  			if(savedJobs[i].job == job){
-  				return true;
-  			}
-
-  		}
-
-  		return false;
-  	}
-
-
   handleSaveSubmit(e){
     e.preventDefault()
-    let component=this
+    let job=this.props.job
+    console.log(job)
+
+    $.ajax({
+      url: '/api/jobs',
+      type: 'POST',
+      data: { job: { title: job.title, description: job.description, company: job.company } },
+      success: (job) => { this.props.handleSaveSubmit(job);
+      }
+
     // saveTheJob(this.state.job).then( data => {
-      component.setState({
-        hasSaved: true,
-        job: data
-      })
+      // component.setState({
+      //   hasSaved: true,
+      //   job: data
+      // })
     // })
-  }
-
-
-
-
+  });
+}
 
   render(){
-    console.log(this.job)
     return (
       <SaveJobButton
         handleSaveSubmit={(e) => this.handleSaveSubmit(e)}/>
