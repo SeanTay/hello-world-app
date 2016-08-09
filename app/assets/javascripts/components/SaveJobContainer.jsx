@@ -9,7 +9,6 @@ class SaveJobContainer extends React.Component {
     let component = this
     e.preventDefault()
     let {handleSubmit, job} = component.props
-    console.log(job)
     $.ajax({
       url: '/api/jobs',
       type: 'POST',
