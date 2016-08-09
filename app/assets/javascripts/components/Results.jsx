@@ -11,7 +11,7 @@ class Results extends React.Component {
           <p><a href={job.url} target="_blank">Apply now!</a></p>
           <SaveJobContainer
             job={job}
-            handleSubmit={this.handleSubmit}/>
+            />
         </div>
       )
     })

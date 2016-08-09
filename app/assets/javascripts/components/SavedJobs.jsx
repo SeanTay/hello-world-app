@@ -6,22 +6,33 @@ class SavedJobs extends React.Component {
     }
   }
 
-  componentDidMount() { $.getJSON('/api/jobs.json', (response) => { this.setState({ savedJobs: response }) }); }
-
-  handleSubmit(job) { var newState = this.state.savedJobs.concat(job); this.setState({ savedJobs: newState }) }
-
-  render(){
-    savedJobs = this.state.savedJobs.map(function(job){
-      return(
-        <div className = "savedJobs" key={job.id}>
-          <p>{job.company}</p>
-        </div>
-      )
+  componentDidMount() {
+    $.getJSON('/api/jobs.json',
+    (response) => { this.setState({
+      savedJobs: response
     })
+  });
+}
+
+handleSubmit(job) {
+  var newState = this.state.savedJobs.concat(job);
+  this.setState({
+    savedJobs: newState
+  })
+}
+
+render(){
+  savedJobs = this.state.savedJobs.map(function(job){
     return(
-      <div>
-        {savedJobs}
-      </div>
+      <ul key={job.id}>
+        <li>{job.company}</li>
+      </ul>
     )
-  }
+  })
+  return(
+    <div className = "savedJobs">
+      {savedJobs}
+    </div>
+  )
+}
 }
