@@ -3,19 +3,20 @@ class SaveJobContainer extends React.Component {
     super(props)
     this.state = {
       hasSaved: false,
-      job: []
     }
   }
   handleSaveSubmit(e){
+    let component = this
     e.preventDefault()
-    let job=this.props.job
+    let {handleSubmit, job} = component.props
     console.log(job)
     $.ajax({
       url: '/api/jobs',
       type: 'POST',
       data: { job: { title: job.title, description: job.description, company: job.company } },
-      // success: (job) => {job.handleSubmit(job);
-      // }
+      success: () => {
+        component.props.handleSubmit(e, job);
+      }
   });
 }
 

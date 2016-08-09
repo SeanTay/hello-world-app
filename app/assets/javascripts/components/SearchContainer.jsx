@@ -42,7 +42,9 @@ class SearchContainer extends React.Component {
     if (this.state.hasSearched){
       return(
         <Results
-          jobs={this.state.jobs}/>
+          jobs={this.state.jobs}
+          handleSubmit = {(e, job) => this.props.handleSubmit(e, job)}
+          />
       )
     } else {
       return (

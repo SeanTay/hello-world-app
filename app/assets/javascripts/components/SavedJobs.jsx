@@ -1,18 +1,7 @@
 class SavedJobs extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      savedJobs: []
-    }
-  }
 
-  componentDidMount() {
-    $.getJSON('/api/jobs.json',
-    (response) => { this.setState({
-      savedJobs: response
-    })
-  });
-}
+
+
 
 
 // handleSubmit(job) {
@@ -22,33 +11,20 @@ class SavedJobs extends React.Component {
 //   })
 // }
 
-   handleDelete(e, id) {
-    let component = this
-    console.log(e, id);
-    e.preventDefault()
-    console.log('delete item clicked')
-    $.ajax({
-      url: '/api/jobs/'+ id,
-      type: 'DELETE',
-      success: () => {
-        newJobs = component.state.savedJobs.filter((job) => {
-          return job.id != id;
-        });
 
-        component.setState({ savedJobs: newJobs});
-      }
-    });
-  }
 
   render(){
+
+
+    let {handleDelete, job} = this.props
     let component = this
-    savedJobs = this.state.savedJobs.map(function(job){
+    savedJobs = this.props.savedJobs.map(function(job){
       return(
         <div key={job.id}>
           <h3>{job.company}</h3>
-            <form onSubmit={(e) => component.handleDelete(e, job.id)}>
-              <button type="submit">Delete </button>
-            </form>
+          <form onSubmit={(e) => component.props.handleDelete(e, job.id)}>
+            <button type="submit">Delete </button>
+          </form>
         </div>
       )
     })
