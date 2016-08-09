@@ -22,33 +22,41 @@ class SavedJobs extends React.Component {
 //   })
 // }
 
-render(){
-  function handleDelete(e, id) {
+   handleDelete(e, id) {
+    let component = this
+    console.log(e, id);
     e.preventDefault()
     console.log('delete item clicked')
     $.ajax({
       url: '/api/jobs/'+ id,
       type: 'DELETE',
-      success(response){
-        console.log('successfully removed job')
+      success: () => {
+        newJobs = component.state.savedJobs.filter((job) => {
+          return job.id != id;
+        });
+
+        component.setState({ savedJobs: newJobs});
       }
     });
   }
 
-  savedJobs = this.state.savedJobs.map(function(job){
+  render(){
+    let component = this
+    savedJobs = this.state.savedJobs.map(function(job){
+
+      return(
+        <div key={job.id}>
+          <h3>{job.company}</h3>
+            <form onSubmit={(e) => component.handleDelete(e, job.id)}>
+              <button type="submit">Delete </button>
+            </form>
+        </div>
+      )
+    })
     return(
-      <div key={job.id}>
-        <h3>{job.company}</h3>
-          <form onSubmit={(e) => handleDelete(e, job.id)}>
-            <button type="submit">Delete </button>
-          </form>
+      <div className = "savedJobs">
+        {savedJobs}
       </div>
     )
-  })
-  return(
-    <div className = "savedJobs">
-      {savedJobs}
-    </div>
-  )
-}
+  }
 }
