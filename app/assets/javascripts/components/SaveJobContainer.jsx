@@ -6,8 +6,6 @@ class SaveJobContainer extends React.Component {
       job: []
     }
   }
-
-
   handleSaveSubmit(e){
     e.preventDefault()
     let job=this.props.job
@@ -16,18 +14,9 @@ class SaveJobContainer extends React.Component {
       url: '/api/jobs',
       type: 'POST',
       data: { job: { title: job.title, description: job.description, company: job.company } },
-      success: (job) => {job.handleSubmit(job);
-      }
-
-    // saveTheJob(this.state.job).then( data => {
-      // component.setState({
-      //   hasSaved: true,
-      //   job: data
-      // })
-    // })
+      // success: (job) => {job.handleSubmit(job);
+      // }
   });
-  e.preventDefault()
-
 }
 
   render(){
