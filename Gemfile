@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'responders'
+gem 'react-router-rails'
 gem 'react-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'

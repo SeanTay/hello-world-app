@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   namespace :api do
     resources :jobs, only: [:index, :create, :destroy, :update]
   end
+  resources :search
 end

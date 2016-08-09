@@ -3,7 +3,6 @@ class App extends React.Component {
     super(props)
     this.state = {
       savedJobs: [],
-      loading: true
     }
   }
 
@@ -42,7 +41,6 @@ handleSubmit(e, job) {
 }
 
 render () {
-if (this.state.loading){
   return (
     <div>
       <SearchContainer
@@ -54,18 +52,6 @@ if (this.state.loading){
          />
     </div>
   )
-} else {
-  return (
-    <div>
-      <SearchContainer
-        handleSubmit = {(e, job) => this.handleSubmit(e, job)}
-        />
-      <SavedJobs
-          savedJobs = {this.state.savedJobs}
-          handleDelete ={(e, id) => this.handleDelete(e, id)}
-         />
-    </div>
-  )
-}
+
 }
 }
