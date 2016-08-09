@@ -12,7 +12,7 @@ class SaveJobContainer extends React.Component {
     $.ajax({
       url: '/api/jobs',
       type: 'POST',
-      data: { job: { title: job.title, description: job.description, company: job.company } },
+      data: { job: { title: job.title, description: job.description, company: job.company, hasSaved: true} },
       success: () => {
         component.props.handleSubmit(e, job);
       }
@@ -20,6 +20,7 @@ class SaveJobContainer extends React.Component {
 }
 
   render(){
+
     return (
       <SaveJobButton
         handleSaveSubmit={(e) => this.handleSaveSubmit(e)}/>
