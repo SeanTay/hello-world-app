@@ -39,6 +39,24 @@ handleDelete(e, id) {
   });
 }
 
+handleDeleteTodo(e, id){
+  let component = this
+  e.preventDefault()
+  console.log('delete todo item clicked')
+  $.ajax({
+    url: '/api/todos/' + id,
+    type: 'DELETE',
+    success: () => {
+
+      console.log('successfully deleting backend')
+      newTodos = component.state.savedTodos.filter((todo) => {
+        return todo.id != id;
+      });
+      component.setState({savedTodos: newTodos})
+    }
+  })
+}
+
 handleSubmit(e, job) {
   console.log('handle submit')
   var newState = this.state.savedJobs.concat(e, job);
@@ -58,7 +76,9 @@ render () {
         handleDelete ={(e, id) => this.handleDelete(e, id)}
         />
       <List
-        todos = {this.state.savedTodos}/>
+        todos = {this.state.savedTodos}
+        handleDeleteTodo={(e, id) => this.handleDeleteTodo(e, id)}
+        />
     </div>
   )
 
