@@ -126,9 +126,6 @@ GEM
       execjs
       railties (>= 3.2)
       tilt
-    react-router-rails (0.13.3.1)
-      rails (>= 3.1)
-      react-rails (>= 0.12)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
     sass (3.4.22)
@@ -181,7 +178,6 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.0.0)
   react-rails
-  react-router-rails
   responders
   sass-rails (~> 5.0)
   spring
@@ -192,4 +188,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.11.2
+   1.12.5
