@@ -15,6 +15,7 @@ class SavedJobs extends React.Component {
     })
     return(
       <div className = "savedJobs">
+      <h2>Saved Jobs</h2>
         {savedJobs}
       </div>
     )
