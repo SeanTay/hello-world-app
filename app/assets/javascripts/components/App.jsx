@@ -14,6 +14,7 @@ class App extends React.Component {
   });
 }
 
+
 handleDelete(e, id) {
   let component = this
   e.preventDefault()

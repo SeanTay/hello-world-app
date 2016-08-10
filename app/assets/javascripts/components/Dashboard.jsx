@@ -4,6 +4,7 @@ class Dashboard extends React.Component {
     super(props)
     this.state = {
       savedJobs: [],
+      savedTodos: []
     }
   }
 
@@ -11,9 +12,15 @@ class Dashboard extends React.Component {
     console.log('componentdidmount')
     $.getJSON('/api/jobs.json',
     (response) => { this.setState({
-      savedJobs: response,
+      savedJobs: response
+      })
     })
-  });
+    console.log('todos mount')
+      $.getJSON('/api/todos.json',
+      (response) => {this.setState({
+        savedTodos: response
+      })
+    })
 }
 
 handleDelete(e, id) {
@@ -32,17 +39,17 @@ handleDelete(e, id) {
   });
 }
 
-// handleSubmit(e, job) {
-//   console.log('handle submit')
-//   var newState = this.state.savedJobs.concat(e, job);
-//   this.setState({
-//     savedJobs: newState,
-//     loading: false
-//   })
-// }
+handleSubmit(e, job) {
+  console.log('handle submit')
+  var newState = this.state.savedJobs.concat(e, job);
+  this.setState({
+    savedJobs: newState,
+    loading: false
+  })
+}
 
 render () {
-
+  console.log("passing state from dashboard",this.state.savedTodos)
   return (
 
     <div>
@@ -50,7 +57,8 @@ render () {
         savedJobs = {this.state.savedJobs}
         handleDelete ={(e, id) => this.handleDelete(e, id)}
         />
-      <List/>
+      <List
+        todos = {this.state.savedTodos}/>
     </div>
   )
 

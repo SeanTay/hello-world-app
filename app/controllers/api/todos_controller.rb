@@ -69,6 +69,6 @@ before_action :set_todo, only: [:show, :edit, :update, :destroy]
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def todo_params
-      params.require(:todo).permit(:body, :tag, :dueDate)
+      params.require(:todo).permit(:body, :tag, :duedate)
     end
 end

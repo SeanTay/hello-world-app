@@ -48,7 +48,7 @@ class NewItem extends React.Component {
       type: 'POST',
       data: {todo: {body: item.body, tag: item.tag, duedate: item.dueDate}},
       success: () => {
-        console.log(item)
+        console.log("successfully posted todo")
       }
     })
 

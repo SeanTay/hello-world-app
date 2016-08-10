@@ -2,7 +2,7 @@ class List extends React.Component {
   constructor(props){
     super()
     this.state = {
-      items: items
+      items: items,
     }
   }
 
@@ -15,17 +15,30 @@ class List extends React.Component {
     let items = this.state.items
     items.splice(index, 1)
     this.setState({items})
-    console.log(this.state)
   }
   render(){
+    savedTodos = this.props.todos.map(function(todo, index){
+        return(
+          <div key={index}>
+            <h3>{todo.body}</h3>
+          </div>
+        )
+    })
     return(
       <div>
-        {this.state.items.map( (item, index) => {
-          console.log("inside map", item, index)
-          return <Item index={index} key={index} item={item}/>
-        })}
-        <NewItem onCreate={ item => this.addItem(item) }/>
+      {savedTodos}
+
+      <NewItem onCreate={ item => this.addItem(item) }/>
+
       </div>
+
+      // <div>
+      //   {this.state.items.map( (item, index) => {
+      //     console.log("inside map", item, index)
+      //     return <Item index={index} key={index} item={item}/>
+      //   })}
+      //
+      // </div>
     )
   }
 }
