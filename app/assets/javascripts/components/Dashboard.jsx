@@ -50,6 +50,7 @@ render () {
         savedJobs = {this.state.savedJobs}
         handleDelete ={(e, id) => this.handleDelete(e, id)}
         />
+      <List/>
     </div>
   )
 
