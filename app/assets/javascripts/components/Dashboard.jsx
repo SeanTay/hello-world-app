@@ -1,4 +1,5 @@
-class App extends React.Component {
+
+class Dashboard extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -7,6 +8,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    console.log('componentdidmount')
     $.getJSON('/api/jobs.json',
     (response) => { this.setState({
       savedJobs: response,
@@ -30,25 +32,24 @@ handleDelete(e, id) {
   });
 }
 
-handleSubmit(e, job) {
- console.log('handle submit')
- var newState = this.state.savedJobs.concat(e, job);
- this.setState({
-   savedJobs: newState,
-   loading: false
- })
-}
+// handleSubmit(e, job) {
+//   console.log('handle submit')
+//   var newState = this.state.savedJobs.concat(e, job);
+//   this.setState({
+//     savedJobs: newState,
+//     loading: false
+//   })
+// }
 
 render () {
+
   return (
+
     <div>
-      <SearchContainer
-        handleSubmit = {(e, job) => this.handleSubmit(e, job)}
-        />
       <SavedJobs
-          savedJobs = {this.state.savedJobs}
-          handleDelete ={(e, id) => this.handleDelete(e, id)}
-         />
+        savedJobs = {this.state.savedJobs}
+        handleDelete ={(e, id) => this.handleDelete(e, id)}
+        />
     </div>
   )
 
