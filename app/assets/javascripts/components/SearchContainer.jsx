@@ -45,14 +45,14 @@ class SearchContainer extends React.Component {
           jobs={this.state.jobs}
           handleSubmit = {(e, job) => this.props.handleSubmit(e, job)}
           />
-      
+
       )
     } else {
       return (
         <Searchbox
           handleSearchInput={(e) => this.handleSearchInput(e)}
           handleSearchSubmit={(e) => this.handleSearchSubmit(e)}
-          handleSubmit = {(job) => this.handleSubmit(job
+          handleSubmit = {(job) => this.handleSubmit(job)}
           query={this.state.query}
           placeholder="Job search"
           />

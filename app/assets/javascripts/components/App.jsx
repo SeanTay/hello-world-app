@@ -33,27 +33,27 @@ handleDelete(e, id) {
 }
 
 handleSubmit(e, job) {
- console.log('handle submit')
- var newState = this.state.savedJobs.concat(e, job);
- this.setState({
-   savedJobs: newState,
-   loading: false
- })
+  console.log('handle submit')
+  $.getJSON('/api/jobs.json',
+  (response) => { this.setState({
+    savedJobs: response,
+  })
+});
 }
 
 render () {
   return (
     <div>
       <div className="searchContainer1">
-      <SearchContainer
-        handleSubmit = {(e, job) => this.handleSubmit(e, job)}
-        />
-    </div>
+        <SearchContainer
+          handleSubmit = {(e, job) => this.handleSubmit(e, job)}
+          />
+      </div>
 
       <SavedJobs
-          savedJobs = {this.state.savedJobs}
-          handleDelete ={(e, id) => this.handleDelete(e, id)}
-         />
+        savedJobs = {this.state.savedJobs}
+        handleDelete ={(e, id) => this.handleDelete(e, id)}
+        />
     </div>
   )
 }
