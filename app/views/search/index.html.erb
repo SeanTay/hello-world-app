@@ -3,7 +3,7 @@
 
 
 <body>
-  <h1 class = "header"> < hello user /> </h1>
+  <h1 class = "header"> < hello <%= current_user.first_name %> /> </h1>
  <h1 className="dashboardHeader"> Search Jobs </h1>
 
  <%= react_component('App') %>

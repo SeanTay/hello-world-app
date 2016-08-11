@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-devise_for :user
+  devise_for :users, :controllers => { registrations: 'registrations' }
+
   resources :jobs
   resources :todos
   root 'welcome#index'
