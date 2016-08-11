@@ -5,24 +5,24 @@ class Dashboard extends React.Component {
     this.state = {
       savedJobs: [],
       savedTodos: [],
-      savedPosts: []
-
+      loading: false
     }
   }
 
   componentDidMount() {
-    console.log('componentdidmount')
+    console.log('jons mount')
     $.getJSON('/api/jobs.json',
     (response) => { this.setState({
       savedJobs: response
+      })
     })
-  })
-  console.log('todos mount')
-  $.getJSON('/api/todos.json',
-  (response) => {this.setState({
-    savedTodos: response
-  })
-})
+      console.log('todos mount')
+      $.getJSON('/api/todos.json',
+      (response) => {this.setState({
+        savedTodos: response,
+        loading: true
+      })
+    })
 }
 
 handleDelete(e, id) {
@@ -41,14 +41,23 @@ handleDelete(e, id) {
   });
 }
 
-
 handleSubmitTodo (e, item) {
   console.log("in the handle submit to do function")
+  //make an AJAX CALL
   $.getJSON('/api/todos.json',
   (response) => {this.setState({
-    savedTodos: response
+    savedTodos: response,
+    loading: true
   })
 })
+  console.log('newstate',this.state)
+
+  // let savedTodos = this.state.savedTodos
+  // savedTodos.push(item)
+  // this.setState ({
+  //   savedTodos
+  // })
+
 }
 
 handleDeleteTodo(e, id){
@@ -65,46 +74,43 @@ handleDeleteTodo(e, id){
         return todo.id != id;
       });
       component.setState({savedTodos: newTodos})
+    },
+    fail: () => {
+      console.log('failed')
     }
   })
 }
 
 handleSubmit(e, job) {
-  console.log('handle submit')
   var newState = this.state.savedJobs.concat(e, job);
   this.setState({
     savedJobs: newState,
   })
 }
 
-handlePostSubmit(e, job) {
-  console.log('handle submit')
-  var newState = this.state.savedPosts.concat(e, post);
-  this.setState({
-    savedJobs: newState,
-  })
-}
-
 render () {
-  console.log("passing state from dashboard",this.state.savedTodos)
   return (
 
     <div className = "dashboard">
       <div className = "filler">
-        <BlogContainer
-          handlePostSubmit = {(e,post) =>this.handlePostSubmit(e,post)}/>
+        <p> left box</p>
       </div>
+        <List
+          todos = {this.state.savedTodos}
+          handleDeleteTodo={(e, id) => this.handleDeleteTodo(e, id)}
+          handleSubmitTodo = {(e, item)=>this.handleSubmitTodo(e,item)}
+          />
 
-      <List
-        todos = {this.state.savedTodos}
-        handleDeleteTodo={(e, id) => this.handleDeleteTodo(e, id)}
-        handleSubmitTodo = {(e, item)=>this.handleSubmitTodo(e,item)}
-        />
 
-      <SavedJobs
-        savedJobs = {this.state.savedJobs}
-        handleDelete ={(e, id) => this.handleDelete(e, id)}
-        />
+
+        <SavedJobs
+          savedJobs = {this.state.savedJobs}
+          handleDelete ={(e, id) => this.handleDelete(e, id)}
+          />
+
+          <NewItem
+            handleSubmitTodo={(e,item)=>this.handleSubmitTodo(e,item)}/>
+
     </div>
 
   )

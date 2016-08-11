@@ -23,6 +23,7 @@ handleDelete(e, id) {
     url: '/api/jobs/'+ id,
     type: 'DELETE',
     success: () => {
+      console.log("delete successful")
       newJobs = component.state.savedJobs.filter((job) => {
         return job.id != id;
       });
@@ -33,11 +34,11 @@ handleDelete(e, id) {
 
 handleSubmit(e, job) {
  console.log('handle submit')
- var newState = this.state.savedJobs.concat(e, job);
- this.setState({
-   savedJobs: newState,
-   loading: false
+ $.getJSON('/api/jobs.json',
+ (response) => { this.setState({
+   savedJobs: response,
  })
+});
 }
 
 render () {

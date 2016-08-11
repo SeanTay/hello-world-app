@@ -10,7 +10,6 @@ class Results extends React.Component {
     let {jobs, handleSubmit}=this.props
     let results=jobs.map((job, index) => {
       return (
-
         <div className="job" key={index}>
           <img  src={job.company_logo} alt={job.company}></img>
           <p>Title: {job.title}</p>
