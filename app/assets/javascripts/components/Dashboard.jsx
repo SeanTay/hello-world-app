@@ -89,7 +89,8 @@ render () {
  return (
 
    <div className = "dashboard">
-     <div className = "filler">
+     <div className = "blogContainer">
+       <h2 className="dashboardHeader"> Search Blogs</h2>
        <BlogContainer
          handlePostSubmit = {(e,post) =>this.handlePostSubmit(e,post)}/>
      </div>
