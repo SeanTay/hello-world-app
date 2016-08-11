@@ -80,18 +80,23 @@ render () {
   console.log("passing state from dashboard",this.state.savedTodos)
   return (
 
-    <div>
-      <SavedJobs
-        savedJobs = {this.state.savedJobs}
-        handleDelete ={(e, id) => this.handleDelete(e, id)}
-        />
+    <div className = "dashboard">
+      <div className = "filler">
+        <p> left box</p>
+      </div>
 
       <List
         todos = {this.state.savedTodos}
         handleDeleteTodo={(e, id) => this.handleDeleteTodo(e, id)}
         handleSubmitTodo = {(e, item)=>this.handleSubmitTodo(e,item)}
         />
+
+        <SavedJobs
+          savedJobs = {this.state.savedJobs}
+          handleDelete ={(e, id) => this.handleDelete(e, id)}
+          />
     </div>
+
   )
 
 }

@@ -14,8 +14,6 @@ class SearchContainer extends React.Component {
     })
   }
 
-
-
   handleSearchSubmit(e){
     function queryGHJobs (query) {
       var term = query.replace(/\s/, "+"); // replace any white space characters with a "+"
@@ -41,10 +39,12 @@ class SearchContainer extends React.Component {
   render(){
     if (this.state.hasSearched){
       return(
+
         <Results
           jobs={this.state.jobs}
           handleSubmit = {(e, job) => this.props.handleSubmit(e, job)}
           />
+  
       )
     } else {
       return (

@@ -43,15 +43,17 @@ handleSubmit(e, job) {
 render () {
   return (
     <div>
+      <div className="searchContainer1">
       <SearchContainer
         handleSubmit = {(e, job) => this.handleSubmit(e, job)}
         />
+    </div>
+
       <SavedJobs
           savedJobs = {this.state.savedJobs}
           handleDelete ={(e, id) => this.handleDelete(e, id)}
          />
     </div>
   )
-
 }
 }

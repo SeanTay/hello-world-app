@@ -48,10 +48,12 @@ class NewItem extends React.Component {
     $.ajax({
       url: '/api/todos',
       type: 'POST',
-      data: {todo: {body: item.body, tag: item.tag, duedate: item.dueDate}},
+      data: {todo: {body: item.body, tag: item.tag, dueDate: item.dueDate}},
       success: () => {
         console.log("create success")
         component.props.handleSubmitTodo(e, item);
+        component.setState({body:"", tag:"", dueDate:""})
+
       }
     })
 
