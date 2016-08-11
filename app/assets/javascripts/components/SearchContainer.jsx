@@ -44,7 +44,7 @@ class SearchContainer extends React.Component {
           jobs={this.state.jobs}
           handleSubmit = {(e, job) => this.props.handleSubmit(e, job)}
           />
-  
+
       )
     } else {
       return (
@@ -52,6 +52,7 @@ class SearchContainer extends React.Component {
           handleSearchInput={(e) => this.handleSearchInput(e)}
           handleSearchSubmit={(e) => this.handleSearchSubmit(e)}
           query={this.state.query}
+          placeholder="Job search"
           />
       )
     }

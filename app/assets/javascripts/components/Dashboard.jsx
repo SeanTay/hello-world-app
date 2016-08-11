@@ -4,7 +4,9 @@ class Dashboard extends React.Component {
     super(props)
     this.state = {
       savedJobs: [],
-      savedTodos: []
+      savedTodos: [],
+      savedPosts: []
+
     }
   }
 
@@ -13,14 +15,14 @@ class Dashboard extends React.Component {
     $.getJSON('/api/jobs.json',
     (response) => { this.setState({
       savedJobs: response
-      })
     })
-    console.log('todos mount')
-      $.getJSON('/api/todos.json',
-      (response) => {this.setState({
-        savedTodos: response
-      })
-    })
+  })
+  console.log('todos mount')
+  $.getJSON('/api/todos.json',
+  (response) => {this.setState({
+    savedTodos: response
+  })
+})
 }
 
 handleDelete(e, id) {
@@ -39,14 +41,14 @@ handleDelete(e, id) {
   });
 }
 
+
 handleSubmitTodo (e, item) {
   console.log("in the handle submit to do function")
-  let savedTodos = this.state.savedTodos
-  savedTodos.push(item)
-  this.setState ({
-    savedTodos
+  $.getJSON('/api/todos.json',
+  (response) => {this.setState({
+    savedTodos: response
   })
-
+})
 }
 
 handleDeleteTodo(e, id){
@@ -72,7 +74,14 @@ handleSubmit(e, job) {
   var newState = this.state.savedJobs.concat(e, job);
   this.setState({
     savedJobs: newState,
-    loading: false
+  })
+}
+
+handlePostSubmit(e, job) {
+  console.log('handle submit')
+  var newState = this.state.savedPosts.concat(e, post);
+  this.setState({
+    savedJobs: newState,
   })
 }
 
@@ -82,7 +91,8 @@ render () {
 
     <div className = "dashboard">
       <div className = "filler">
-        <p> left box</p>
+        <BlogContainer
+          handlePostSubmit = {(e,post) =>this.handlePostSubmit(e,post)}/>
       </div>
 
       <List
@@ -91,10 +101,10 @@ render () {
         handleSubmitTodo = {(e, item)=>this.handleSubmitTodo(e,item)}
         />
 
-        <SavedJobs
-          savedJobs = {this.state.savedJobs}
-          handleDelete ={(e, id) => this.handleDelete(e, id)}
-          />
+      <SavedJobs
+        savedJobs = {this.state.savedJobs}
+        handleDelete ={(e, id) => this.handleDelete(e, id)}
+        />
     </div>
 
   )

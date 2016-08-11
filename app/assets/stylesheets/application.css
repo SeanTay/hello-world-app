@@ -77,3 +77,8 @@
   text-align: center;
   font-size: 30px;
 }
+
+.blogResults {
+  width:300px;
+  overflow:scroll;
+}
