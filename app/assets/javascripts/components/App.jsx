@@ -3,29 +3,23 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      savedJobs: []
+      savedJobs: [],
     }
   }
 
   componentDidMount() {
     $.getJSON('/api/jobs.json',
     (response) => { this.setState({
-      savedJobs: response
+      savedJobs: response,
     })
   });
 }
 
-handleSubmit(job) {
-  var newState = this.state.savedJobs.concat(job);
-  this.setState({
-    savedJobs: newState
-  })
-}
 
 handleDelete(e, id) {
+  let component = this
   e.preventDefault()
-  let component=this
-
+  console.log('delete item clicked')
   $.ajax({
     url: '/api/jobs/'+ id,
     type: 'DELETE',
@@ -38,17 +32,29 @@ handleDelete(e, id) {
   });
 }
 
-  render () {
-    return (
-      <div>
+handleSubmit(e, job) {
+ console.log('handle submit')
+ var newState = this.state.savedJobs.concat(e, job);
+ this.setState({
+   savedJobs: newState,
+   loading: false
+ })
+}
+
+render () {
+  return (
+    <div>
+      <div className="searchContainer1">
       <SearchContainer
-        handleSubmit = {(job) => this.handleSubmit(job)}
+        handleSubmit = {(e, job) => this.handleSubmit(e, job)}
         />
+    </div>
 
       <SavedJobs
-        savedJobs = {this.state.savedJobs}
-        handleDelete = {(e, id) => this.handleDelete(e, id)}/>
-        </div>
-    );
-  }
+          savedJobs = {this.state.savedJobs}
+          handleDelete ={(e, id) => this.handleDelete(e, id)}
+         />
+    </div>
+  )
+}
 }

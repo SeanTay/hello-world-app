@@ -56,7 +56,10 @@ class Api::JobsController < Api::BaseController
   def destroy
     @job.destroy
     respond_to do |format|
+<<<<<<< HEAD
       # format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
+=======
+>>>>>>> 0eca9ef705b364d2e4172c5fba2e16d4101d6d18
       format.json { head :no_content }
     end
   end

@@ -10,12 +10,8 @@ body {
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
-  line-height: 18px;
-  margin: 33px;
-}
-
-.savedJobs {
-
+  // line-height: 18px;
+  // margin: 33px;
 }
 
 pre {
@@ -84,15 +80,39 @@ div {
 
   ul li {
     font-size: 12px;
-    list-style: square;
+    list-style: none;
   }
 }
+
+.results {
+  display: flex;
+  flex-wrap:wrap;
+  width: 100%
+}
 .job{
-  border: 5px solid black;
+  border: 5px solid lightgrey;
+  border-radius: 5px;
   width: 300px;
   padding: 10px;
   margin: 10px;
+  display:flex;
+  flex-direction:column;
 }
+
+.job button {
+  font-size: 20px;
+  padding: 5px;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+
+.job img{
+  width: 150px;
+  margin: 0 auto;
+}
+
+
 
 label {
   display: block;
