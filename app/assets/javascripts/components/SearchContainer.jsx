@@ -4,6 +4,7 @@ class SearchContainer extends React.Component {
     this.state = {
       query:'',
       hasSearched: false,
+      savedJobs: this.props.savedJobs,
       jobs: []
     }
   }
@@ -13,8 +14,6 @@ class SearchContainer extends React.Component {
       query: e.target.value
     })
   }
-
-
 
   handleSearchSubmit(e){
     function queryGHJobs (query) {
@@ -41,17 +40,21 @@ class SearchContainer extends React.Component {
   render(){
     if (this.state.hasSearched){
       return(
+
         <Results
           jobs={this.state.jobs}
           handleSubmit = {(e, job) => this.props.handleSubmit(e, job)}
           />
+
       )
     } else {
       return (
         <Searchbox
           handleSearchInput={(e) => this.handleSearchInput(e)}
           handleSearchSubmit={(e) => this.handleSearchSubmit(e)}
+          handleSubmit = {(job) => this.handleSubmit(job)}
           query={this.state.query}
+          placeholder="Job search"
           />
       )
     }

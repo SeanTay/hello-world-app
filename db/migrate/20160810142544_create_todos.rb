@@ -3,7 +3,7 @@ class CreateTodos < ActiveRecord::Migration[5.0]
     create_table :todos do |t|
       t.text :body
       t.string :tag
-      t.string :duedate
+      t.string :dueDate
 
       t.timestamps
     end

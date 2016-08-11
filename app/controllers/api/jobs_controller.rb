@@ -28,8 +28,8 @@ class Api::JobsController < Api::BaseController
 
     respond_to do |format|
       if @job.save
-        # format.html { redirect_to @job, notice: 'Job was successfully created.' }
-        format.json { render json: @job, status: :created, location: @job }
+        format.html {}
+        format.json {}
       else
         format.html { render :new }
         format.json { render json: @job.errors, status: :unprocessable_entity }
@@ -43,7 +43,7 @@ class Api::JobsController < Api::BaseController
     respond_to do |format|
       if @job.update(job_params)
         format.html { redirect_to @job, notice: 'Job was successfully updated.' }
-        format.json { render :show, status: :ok, location: @job }
+        format.json { render :controller => 'home', :action => 'index' }
       else
         format.html { render :edit }
         format.json { render json: @job.errors, status: :unprocessable_entity }
@@ -56,6 +56,7 @@ class Api::JobsController < Api::BaseController
   def destroy
     @job.destroy
     respond_to do |format|
+      # format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
