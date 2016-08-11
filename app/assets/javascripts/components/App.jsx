@@ -34,19 +34,11 @@ handleDelete(e, id) {
 }
 
 handleSubmit(e, job) {
-<<<<<<< HEAD
-  console.log('handle submit')
-  $.getJSON('/api/jobs.json',
-  (response) => { this.setState({
-    savedJobs: response,
-  })
-=======
  console.log('handle submit')
  $.getJSON('/api/jobs.json',
  (response) => { this.setState({
    savedJobs: response,
  })
->>>>>>> master
 });
 }
 
