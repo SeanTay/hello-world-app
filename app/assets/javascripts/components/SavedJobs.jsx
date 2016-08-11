@@ -1,5 +1,6 @@
 class SavedJobs extends React.Component {
 
+
   render(){
     let {handleDelete, job} = this.props
     let component = this

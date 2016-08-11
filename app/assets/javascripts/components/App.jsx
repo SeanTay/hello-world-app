@@ -1,4 +1,5 @@
 class App extends React.Component {
+
   constructor(props) {
     super(props)
     this.state = {
@@ -33,11 +34,19 @@ handleDelete(e, id) {
 }
 
 handleSubmit(e, job) {
+<<<<<<< HEAD
+  console.log('handle submit')
+  $.getJSON('/api/jobs.json',
+  (response) => { this.setState({
+    savedJobs: response,
+  })
+=======
  console.log('handle submit')
  $.getJSON('/api/jobs.json',
  (response) => { this.setState({
    savedJobs: response,
  })
+>>>>>>> master
 });
 }
 
@@ -45,15 +54,15 @@ render () {
   return (
     <div>
       <div className="searchContainer1">
-      <SearchContainer
-        handleSubmit = {(e, job) => this.handleSubmit(e, job)}
-        />
-    </div>
+        <SearchContainer
+          handleSubmit = {(e, job) => this.handleSubmit(e, job)}
+          />
+      </div>
 
       <SavedJobs
-          savedJobs = {this.state.savedJobs}
-          handleDelete ={(e, id) => this.handleDelete(e, id)}
-         />
+        savedJobs = {this.state.savedJobs}
+        handleDelete ={(e, id) => this.handleDelete(e, id)}
+        />
     </div>
   )
 }
