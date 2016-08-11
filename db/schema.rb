@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20160810142544) do
   create_table "todos", force: :cascade do |t|
     t.text     "body"
     t.string   "tag"
-    t.string   "duedate"
+    t.string   "dueDate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

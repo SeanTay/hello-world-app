@@ -3,9 +3,9 @@
 one:
   body: MyText
   tags: MyString
-  duedate: MyString
+  dueDate: MyString
 
 two:
   body: MyText
   tags: MyString
-  duedate: MyString
+  dueDate: MyString

@@ -39,6 +39,16 @@ handleDelete(e, id) {
   });
 }
 
+handleSubmitTodo (e, item) {
+  console.log("in the handle submit to do function")
+  let savedTodos = this.state.savedTodos
+  savedTodos.push(item)
+  this.setState ({
+    savedTodos
+  })
+
+}
+
 handleDeleteTodo(e, id){
   let component = this
   e.preventDefault()
@@ -75,9 +85,11 @@ render () {
         savedJobs = {this.state.savedJobs}
         handleDelete ={(e, id) => this.handleDelete(e, id)}
         />
+
       <List
         todos = {this.state.savedTodos}
         handleDeleteTodo={(e, id) => this.handleDeleteTodo(e, id)}
+        handleSubmitTodo = {(e, item)=>this.handleSubmitTodo(e,item)}
         />
     </div>
   )

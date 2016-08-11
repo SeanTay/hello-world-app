@@ -41,6 +41,8 @@ class NewItem extends React.Component {
   create(e){
     e.preventDefault()
     console.log("create button clicked")
+    let component = this
+    let {handleSubmitTodo} = component.props
     let item = this.state
     console.log(item)
     $.ajax({
@@ -48,9 +50,13 @@ class NewItem extends React.Component {
       type: 'POST',
       data: {todo: {body: item.body, tag: item.tag, duedate: item.dueDate}},
       success: () => {
-        console.log("successfully posted todo")
+        console.log("create success")
+        component.props.handleSubmitTodo(e, item);
       }
     })
+
+
+
 
     // let item = this.state
     // this.props.onCreate(item)
