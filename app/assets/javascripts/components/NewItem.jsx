@@ -10,7 +10,8 @@ class NewItem extends React.Component {
   }
   render(){
     return (
-      <div>
+      <div className="todoForm">
+        <h1>To Do</h1>
         <form onSubmit={ e => this.create(e)}>
           <input type="text" value={this.state.body} placeholder="New Task" onChange={ e => this.change(e)} />
           <input type="string" value={this.state.tag} placeholder="Tags"

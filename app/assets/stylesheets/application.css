@@ -90,3 +90,70 @@
   overflow:scroll;
   height: 400px;
 }
+.searchBox form {
+  margin: 0;
+  padding: 0;
+  width: 250px;
+}
+
+.searchBox form input {
+  background: transparent;
+    background: rgba(163, 135, 106, 0.15);
+    background-clip: padding-box;
+
+    border: none;
+    border-radius:         26px;
+
+    box-shadow:         inset 0 0 5px rgba(0, 0, 0, 0.1),
+                        0 1px 0 rgba(255, 255, 255, 0.5),
+                        inset 0 1px 2px rgba(0, 0, 0, 0.3),
+                        0 0 40px rgba(255, 255, 255, 0.3);
+
+    color: #333;
+    height: 26px;
+    margin: 10px;
+    outline: none;
+    padding: 0 20px 0 20px;
+
+    transition:         all .1s linear;
+
+    width: 250px;
+}
+
+.searchBox form input:focus {
+  background: transparent;
+    background: rgba(163, 135, 106, 0.2);
+
+    box-shadow:         inset 0 0 5px rgba(0, 0, 0, 0.2),
+                        0 1px 0 rgba(255, 255, 255, 0.7),
+                        inset 0 1px 2px rgba(0, 0, 0, 0.4),
+                        0 0 40px rgba(255, 255, 255, 0.5);
+}
+
+.todoForm {
+  font: 95% Arial, Helvetica, sans-serif;
+  max-width: 400px;
+  margin: 10px auto;
+  padding: 16px;
+  background: #F7F7F7;
+}
+
+.todoForm h1{
+    background: #43D1AF;
+    padding: 20px 0;
+    font-size: 140%;
+    font-weight: 300;
+    text-align: center;
+    color: #fff;
+    margin: -16px -16px 16px -16px;
+}
+
+.todoForm input {
+   width: 92%;
+   background: #fff;
+   margin-bottom: 4%;
+   border: 1px solid #ccc;
+   padding: 3%;
+   color: #555;
+   font: 95% Arial, Helvetica, sans-serif;
+}

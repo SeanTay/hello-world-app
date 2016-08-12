@@ -28,7 +28,7 @@ class Item extends React.Component {
           onBlur={e => this.toggleEdit(e)}
           onChange={e => this.isTyping(e) }
           ref="edit"
-          value={this.state.item.body} />
+          value={this.state.item} />
       )
     } else {
       return (

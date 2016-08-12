@@ -19,10 +19,11 @@ class List extends React.Component {
 
     return(
       <div className = "todos">
-        <h2 className="dashboardHeader"> To Do:</h2>
-        {savedTodos}
+        <h2 className="dashboardHeader"></h2>
+
         <NewItem onCreate={ item => this.addItem(item) }
           handleSubmitTodo={(e,item)=>handleSubmitTodo(e,item)}/>
+        {savedTodos}
 
       </div>
 
