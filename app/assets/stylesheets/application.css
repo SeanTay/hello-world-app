@@ -54,7 +54,6 @@
 }
 
 .dashboard {
-  /*background-color: gainsboro;*/
   padding: 20px;
   border-radius: 5px;
   display: flex;
@@ -69,6 +68,13 @@
   background-color:#dff2d8;
   border-radius: 5px;
   padding: 15px
+}
+
+.jobsBox {
+  margin: 0 20px;
+  background-color:#dff2d8;
+  border-radius: 5px;
+  padding-bottom:20px;
 }
 
 .blogs{
@@ -115,6 +121,8 @@ flex-grow: 1;
   padding: 0;
 }
 
+
+
 .searchBox form input {
   background: transparent;
     background: rgba(163, 135, 106, 0.15);
@@ -149,21 +157,14 @@ flex-grow: 1;
                         0 0 40px rgba(255, 255, 255, 0.5);
 }
 
+
+
 .todoForm {
   margin: 0px auto;
   padding: 16px;
   background: #F7F7F7;
 }
 
-.todoForm h1{
-    /*background: #fc7753;
-    padding: 20px 0;
-    font-size: 140%;
-    font-weight: 300;
-    text-align: center;
-    color: #fff;
-    margin: -16px -16px 16px -16px;*/
-}
 
 .searchPage {
   display:flex;
