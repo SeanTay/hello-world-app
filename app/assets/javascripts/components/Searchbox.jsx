@@ -6,7 +6,6 @@ class Searchbox extends React.Component {
       <div className="searchBox">
         <form onSubmit={(e) => handleSearchSubmit(e)}>
           <input onChange={(e) => handleSearchInput(e)} value={query} type="text" placeholder={this.props.placeholder} />
-          <button type="submit"> Search</button>
         </form>
       </div>
     )

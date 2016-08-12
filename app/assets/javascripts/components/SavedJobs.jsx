@@ -9,6 +9,8 @@ class SavedJobs extends React.Component {
         <div key={index}>
           <h3>{job.company}</h3>
           <p>{job.title}</p>
+          <p><a href={job.url} target="_blank">Apply now!</a></p>
+
           <form onSubmit={(e) => component.props.handleDelete(e, job.id)}>
             <button type="submit">Delete </button>
           </form>
