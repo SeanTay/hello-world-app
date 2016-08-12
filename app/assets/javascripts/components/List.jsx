@@ -4,8 +4,6 @@ class List extends React.Component {
   render(){
     let {handleDeleteTodo, todo, handleSubmitTodo} = this.props
     let component = this
-    console.log(component)
-
     savedTodos = this.props.todos.map(function(todo, index){
       return(
         <div className = "todo" key={index}>

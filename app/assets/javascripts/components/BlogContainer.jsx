@@ -53,7 +53,7 @@ class BlogContainer extends React.Component {
 
           <BlogResults
             posts={this.state.posts}
-            handleSubmit = {(e, post) => this.props.handlePostSubmit(e, post)}
+            handlePostSubmit = {(e, post) => this.props.handlePostSubmit(e, post)}
             />
         </div>
       )

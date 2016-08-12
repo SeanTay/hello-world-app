@@ -1,21 +1,21 @@
-class SaveJobContainer extends React.Component {
+class SavePostContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       hasSaved: false,
-      
     }
   }
   handleSaveSubmit(e){
     let component = this
     e.preventDefault()
-    let {handleSubmit, job} = component.props
+    let {handlePostSubmit, post} = component.props
+
     $.ajax({
-      url: '/api/jobs',
+      url: '/api/posts',
       type: 'POST',
-      data: { job: { title: job.title, description: job.description, company: job.company, hasSaved: true, url: job.url} },
+      data: { post: { title: post.name, author: post.author.name, url: post.refs.landing_page, hasSaved: true} },
       success: () => {
-        component.props.handleSubmit(e, job);
+        component.props.handlePostSubmit(e, post);
       }
   });
 }

@@ -4,8 +4,7 @@ class BlogResults extends React.Component {
 
   render(){
 
-console.log(this.props.posts.results)
-    let {handleSubmit}=this.props
+    let {handlePostSubmit}=this.props
 
     let posts = this.props.posts.results
     let results=posts.map((post, index) => {
@@ -16,9 +15,9 @@ console.log(this.props.posts.results)
           <p>By {post.author.name}</p>
           <a href={post.refs.landing_page}>Read Now</a>
 
-          <SaveJobContainer
+          <SavePostContainer
             post={post}
-            handleSubmit = {(e, post) => this.props.handlePostSubmit(e, post)}
+            handlePostSubmit = {(e, post) => this.props.handlePostSubmit(e, post)}
             />
         </div>
       )

@@ -55,7 +55,7 @@
 }
 
 .todos {
-  flex-grow:2;
+  flex-grow:1;
 }
 
 .todo {
@@ -78,7 +78,15 @@
   font-size: 30px;
 }
 
-.blogResults {
+.blogContainer {
   width:300px;
+  height: 350px;
   overflow:scroll;
+}
+
+
+.savedPosts {
+  width:340px;
+  overflow:scroll;
+  height: 400px;
 }
