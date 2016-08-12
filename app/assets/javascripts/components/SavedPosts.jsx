@@ -20,7 +20,6 @@ class SavedPosts extends React.Component {
     })
     return(
       <div className = "savedPosts">
-      <h2 className="dashboardHeader">Resource Library</h2>
         {savedPosts}
       </div>
     )

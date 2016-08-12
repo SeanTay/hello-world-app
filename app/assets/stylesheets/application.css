@@ -18,10 +18,6 @@
    list-style-type:none;
  }
 
- body{
-   background-color: white;
- }
-
  li{
    display:inline-block;
  }
@@ -31,10 +27,30 @@
    text-align:center;
  }
 
+ .main-nav a{
+   color: #fc7753;
+   text-decoration:none;
+   font-size: 16px;
+   flex-grow:1;
+   margin: 0 10px;
+   font-weight:bold;
+   margin-bottom:-10px;
+ }
+
+ h1, h2{
+   font-family: "Raleway";
+ }
+
+ a {
+   color: #fc7753;
+   font-weight:bold;
+ }
+
 .header {
   font-size: 60px;
   font-family: 'Monaco', sans-serif;
   text-align: center;
+  color: #ebebd3;
 }
 
 .dashboard {
@@ -43,36 +59,38 @@
   border-radius: 5px;
   display: flex;
   flex-direction: row;
-  height: 800px;
+  height:900px;
+  margin-top: -20px;
 
 }
 
 .dashboard > div {
   margin: 10px;
-  background-color:honeydew;
+  background-color:#dff2d8;
   border-radius: 5px;
   padding: 15px
 }
 
+.blogs{
+max-width: 400px;
+flex-grow: 1;
+}
+
 .todos {
-  flex-grow:1;
+  flex-grow:2;
 }
 
 .todo {
-  background-color: white;
+  background-color: #f7f7f7;
   padding: 10px;
   margin: 10px 0;
   border-radius: 2px;
 }
 
-.blogContainer {
-  flex-grow: 2;
-  padding:0;
-}
-
 .savedJobs {
   flex-grow: 1;
   overflow:scroll;
+  min-width: 280px;
 }
 
 .dashboardHeader{
@@ -83,17 +101,18 @@
 .blogContainer {
   height: 350px;
   overflow:scroll;
+  padding:0;
+
 }
 
 
 .savedPosts {
   overflow:scroll;
-  height: 400px;
+  height: 330px;
 }
 .searchBox form {
   margin: 0;
   padding: 0;
-  width: 250px;
 }
 
 .searchBox form input {
@@ -117,7 +136,7 @@
 
     transition:         all .1s linear;
 
-    width: 250px;
+    width: 85%;
 }
 
 .searchBox form input:focus {
@@ -131,21 +150,48 @@
 }
 
 .todoForm {
-  font: 95% Arial, Helvetica, sans-serif;
-  max-width: 400px;
   margin: 0px auto;
   padding: 16px;
   background: #F7F7F7;
 }
 
 .todoForm h1{
-    background: #43D1AF;
+    /*background: #fc7753;
     padding: 20px 0;
     font-size: 140%;
     font-weight: 300;
     text-align: center;
     color: #fff;
-    margin: -16px -16px 16px -16px;
+    margin: -16px -16px 16px -16px;*/
+}
+
+.searchPage {
+  display:flex;
+  flex-direction:row;
+}
+
+.searchHeader {
+  font-size:30px;
+  text-align:center;
+}
+
+.savedJobsSearch {
+  min-width:250px;
+  padding: 0 15px;
+  background-color: #dff2d8;
+  overflow:scroll;
+  height:600px;
+  right:0;
+  border-radius:10px;
+
+}
+
+.searchContainer1 {
+  flex-grow:3;
+}
+
+.results {
+  flex-grow:3;
 }
 
 .todoForm input {
@@ -155,29 +201,23 @@
    border: 1px solid #ccc;
    padding: 3%;
    color: #555;
-   font: 95% Arial, Helvetica, sans-serif;
 }
 
 .todoForm input:focus {
-    box-shadow: 0 0 5px #43D1AF;
+    box-shadow: 0 0 5px #fc7753;
     padding: 3%;
-    border: 1px solid #43D1AF;
+    border: 1px solid #fc7753;
 }
 
-.todoForm button{
+ .todoForm button{
     box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     width: 100%;
     padding: 3%;
-    background: #43D1AF;
-    border-bottom: 2px solid #30C29E;
-    border-top-style: none;
-    border-right-style: none;
-    border-left-style: none;
+    background: #fc7753;
+    border-bottom: 2px solid #f27935;
     color: #fff;
 }
 
-.todoForm button:hover{
-    background: #2EBC99;
+ button:hover{
+    background: #f27935;
 }

@@ -1,16 +1,14 @@
 body {
-  background-color: #fff;
+  background-color: #4f6d7a;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: "Open-Sans", helvetica, sans-serif;
   font-size: 13px;
   margin: 33px;
 }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: "Open-Sans", helvetica, sans-serif;
   font-size: 13px;
-  // line-height: 18px;
-  // margin: 33px;
 }
 
 pre {
@@ -20,7 +18,6 @@ pre {
 }
 
 a {
-  color: #000;
 
   &:visited {
     color: #666;
@@ -89,7 +86,7 @@ div {
   width: 100%
 }
 .job{
-  border: 5px solid lightgrey;
+  background: white;
   border-radius: 5px;
   width: 300px;
   padding: 10px;

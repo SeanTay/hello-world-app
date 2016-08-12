@@ -110,17 +110,22 @@ render () {
   return (
 
     <div className = "dashboard">
+
       <div className = "blogs">
+        <h2 className="dashboardHeader">Resource Library</h2>
+
         <SavedPosts
           savedPosts = {this.state.savedPosts}
           handlePostDelete={(e, id) => this.handlePostDelete(e, id)}/>
 
+        <div>
+        <h2 className="dashboardHeader"> Search Blogs</h2>
+
         <div className = "blogContainer">
-          <h2 className="dashboardHeader"> Search Blogs</h2>
           <BlogContainer
             handlePostSubmit = {(e,post) =>this.handlePostSubmit(e,post)}/>
         </div>
-
+        </div>
       </div>
 
 
